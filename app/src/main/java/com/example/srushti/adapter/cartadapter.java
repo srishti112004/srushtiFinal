@@ -1,20 +1,20 @@
-
 package com.example.srushti.adapter;
 
-        import android.content.Context;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ImageButton;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        import androidx.annotation.NonNull;
-        import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-        import com.example.srushti.R;
+import com.example.srushti.R;
 
-        import java.util.List;
+import java.util.List;
 
 public class cartadapter extends RecyclerView.Adapter<cartadapter.CartViewHolder> {
 
@@ -34,16 +34,44 @@ public class cartadapter extends RecyclerView.Adapter<cartadapter.CartViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CartViewHolder holder, @SuppressLint("RecyclerView") int position) {
         popularItem currentItem = cartItemList.get(position);
 
         // Set data to views
         holder.cartImage.setImageResource(currentItem.getImageResource());
         holder.cartFoodName.setText(currentItem.getFoodName());
         holder.cartItemPrice.setText(currentItem.getPrice());
-        holder.quantityTextView.setText("1"); // You may update this dynamically based on the actual quantity
+        holder.quantityTextView.setText(String.valueOf(currentItem.getQuantity()));
 
-        // Implement click listeners or any additional logic here
+       /* holder.plusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Implement logic for incrementing quantity
+                // You can update the item quantity in the cartItemList and refresh the adapter
+                currentItem.incrementQuantity();
+                notifyDataSetChanged();
+            }
+        });
+
+        holder.minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Implement logic for decrementing quantity
+                // You can update the item quantity in the cartItemList and refresh the adapter
+                currentItem.decrementQuantity();
+                notifyDataSetChanged();
+            }
+        });
+
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Implement logic for deleting the item from the cart
+                // You can remove the item from the list and refresh the adapter
+                cartItemList.remove(position);
+                notifyDataSetChanged();
+            }
+        });*/
     }
 
     @Override

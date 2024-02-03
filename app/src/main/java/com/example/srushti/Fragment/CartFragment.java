@@ -26,6 +26,7 @@ public class CartFragment extends Fragment {
     private Button proceedButton;
     private cartadapter cartAdapter;
     private List<popularItem> cartItemList;
+    private RecyclerView.Adapter cartadapter;
 
     public CartFragment() {
         // Required empty public constructor
@@ -45,7 +46,7 @@ public class CartFragment extends Fragment {
         cartItemList = generateSampleCartItems(); // Replace this with your data
         cartAdapter = new cartadapter(cartItemList, requireContext());
         recyclerViewCart.setLayoutManager(new LinearLayoutManager(requireContext()));
-        recyclerViewCart.setAdapter(cartAdapter);
+        recyclerViewCart.setAdapter(cartadapter);
 
         // Set up button click listener (you can implement your logic here)
         proceedButton.setOnClickListener(new View.OnClickListener() {
@@ -60,13 +61,13 @@ public class CartFragment extends Fragment {
 
     private List<popularItem> generateSampleCartItems() {
         List<popularItem> itemList = new ArrayList<>();
-        itemList.add(new popularItem(R.drawable.menu1, "Sandwich", "$10"));
-        itemList.add(new popularItem(R.drawable.menu2, "Momo", "$8"));
-        itemList.add(new popularItem(R.drawable.menu3, "Ice-cream", "$12"));
-        itemList.add(new popularItem(R.drawable.menu4, "Soup", "$14"));
-        itemList.add(new popularItem(R.drawable.menu5, "Pasta", "$15"));
-        itemList.add(new popularItem(R.drawable.menu6, "Wrap", "$16"));
-        itemList.add(new popularItem(R.drawable.menu7, "Fruit salad", "$17"));
+        itemList.add(new popularItem(R.drawable.menu1, "Sandwich", "$10",1));
+        itemList.add(new popularItem(R.drawable.menu2, "Momo", "$8",1));
+        itemList.add(new popularItem(R.drawable.menu3, "Ice-cream", "$12",1));
+        itemList.add(new popularItem(R.drawable.menu4, "Soup", "$14",1));
+        itemList.add(new popularItem(R.drawable.menu5, "Pasta", "$15",1));
+        itemList.add(new popularItem(R.drawable.menu6, "Wrap", "$16",1));
+        itemList.add(new popularItem(R.drawable.menu7, "Fruit salad", "$17",1));
         // Populate the list with sample data
         // You may fetch the actual cart items from your data source
         return itemList;

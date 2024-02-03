@@ -4,11 +4,13 @@ public class popularItem {
     private int imageResource;
     private String foodName;
     private String price;
+    private int quantity;
 
-    public popularItem(int imageResource, String foodName, String price) {
+    public popularItem(int imageResource, String foodName, String price,int quantity) {
         this.imageResource = imageResource;
         this.foodName = foodName;
         this.price = price;
+        this.quantity = quantity;
     }
 
     public int getImageResource() {
@@ -21,5 +23,12 @@ public class popularItem {
 
     public String getPrice() {
         return price;
+    }
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
