@@ -31,6 +31,7 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             //This is vivek
+            //noce
         });
     }
 }
