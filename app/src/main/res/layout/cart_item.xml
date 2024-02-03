@@ -43,25 +43,30 @@
                 android:src="@drawable/plus"
                 app:layout_constraintBottom_toBottomOf="@+id/quantity"
                 app:layout_constraintTop_toTopOf="@+id/quantity"
-                tools:layout_editor_absoluteX="299dp" />
+                tools:layout_editor_absoluteX="299dp"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/quantity"
-                android:layout_width="31dp"
-                android:layout_height="14dp"
+                android:layout_width="43dp"
+                android:layout_height="21dp"
+                android:fontFamily="@font/lato"
                 android:gravity="center"
                 android:text="1"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/plusbutton"
                 app:layout_constraintStart_toEndOf="@+id/minusbutton"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.421" />
+                app:layout_constraintVertical_bias="0.263" />
 
             <TextView
                 android:id="@+id/cartitemprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:textColor="@color/textcolor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/cartfoodname"
                 app:layout_constraintStart_toStartOf="@+id/cartfoodname"
@@ -72,9 +77,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:fontFamily="@font/almendra_sc"
                 android:text="TextView"
+                android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/cartimage"
-                tools:layout_editor_absoluteY="16dp" />
+                tools:layout_editor_absoluteY="16dp"
+                tools:ignore="MissingConstraints" />
 
             <ImageView
                 android:id="@+id/cartimage"
@@ -92,11 +100,14 @@
                 android:id="@+id/minusbutton"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_marginStart="32dp"
                 android:background="@drawable/addtocartshape"
                 android:src="@drawable/minus"
                 app:layout_constraintBottom_toBottomOf="@+id/quantity"
+                app:layout_constraintStart_toEndOf="@+id/cartfoodname"
                 app:layout_constraintTop_toTopOf="@+id/quantity"
-                tools:layout_editor_absoluteX="207dp" />
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

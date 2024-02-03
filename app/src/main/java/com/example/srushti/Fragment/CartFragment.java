@@ -1,66 +1,74 @@
 package com.example.srushti.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.srushti.R;
+import com.example.srushti.adapter.cartadapter;
+import com.example.srushti.adapter.popularItem;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class CartFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private TextView cartTitle;
+    private RecyclerView recyclerViewCart;
+    private Button proceedButton;
+    private cartadapter cartAdapter;
+    private List<popularItem> cartItemList;
 
     public CartFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CartFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CartFragment newInstance(String param1, String param2) {
-        CartFragment fragment = new CartFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @SuppressLint("MissingInflatedId")
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_cart, container, false);
+
+        // Initialize views
+        cartTitle = view.findViewById(R.id.textView15);
+        recyclerViewCart = view.findViewById(R.id.recyclerViewCart);
+        proceedButton = view.findViewById(R.id.button6);
+
+        // Set up RecyclerView
+        cartItemList = generateSampleCartItems(); // Replace this with your data
+        cartAdapter = new cartadapter(cartItemList, requireContext());
+        recyclerViewCart.setLayoutManager(new LinearLayoutManager(requireContext()));
+        recyclerViewCart.setAdapter(cartAdapter);
+
+        // Set up button click listener (you can implement your logic here)
+        proceedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle button click (e.g., proceed with checkout)
+            }
+        });
+
+        return view;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false);
+    private List<popularItem> generateSampleCartItems() {
+        List<popularItem> itemList = new ArrayList<>();
+        itemList.add(new popularItem(R.drawable.menu1, "Sandwich", "$10"));
+        itemList.add(new popularItem(R.drawable.menu2, "Momo", "$8"));
+        itemList.add(new popularItem(R.drawable.menu3, "Ice-cream", "$12"));
+        itemList.add(new popularItem(R.drawable.menu4, "Soup", "$14"));
+        itemList.add(new popularItem(R.drawable.menu5, "Pasta", "$15"));
+        itemList.add(new popularItem(R.drawable.menu6, "Wrap", "$16"));
+        itemList.add(new popularItem(R.drawable.menu7, "Fruit salad", "$17"));
+        // Populate the list with sample data
+        // You may fetch the actual cart items from your data source
+        return itemList;
     }
 }
