@@ -30,6 +30,7 @@ public class StartActivity extends AppCompatActivity {
                 // Start the LoginActivity
                 startActivity(intent);
             }
+            //This is vivek
         });
     }
 }
