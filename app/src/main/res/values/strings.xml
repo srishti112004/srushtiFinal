@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="next">Next</string>
+    <string name="design_by_isha_vekariya">Design By\nISHA VEARIYA</string>
+    <string name="sign_up_here">Sign Up Here</string>
+    <string name="deliver_favorite_food">Deliver Favorite Food</string>
+    <string name="food_express">Food Express</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
