@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +40,8 @@ public class HomeFragment extends Fragment {
 
         imgColl = view.findViewById(R.id.Imgcoll);
         recyclerViewPopular = view.findViewById(R.id.recyclerViewPopular);
+        TextView viewMenuTextView = view.findViewById(R.id.textView14);
+
 
         // Initialize RecyclerView and its adapter
         popularItemList = generateSamplePopularItems(); // Replace this with your data
@@ -49,6 +52,14 @@ public class HomeFragment extends Fragment {
 
         // Start the image change task
         startImageChangeTask();
+        viewMenuTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open the MenuBottomSheetFragment
+                MenuBottomSheetFragment bottomSheetFragment = new MenuBottomSheetFragment();
+                bottomSheetFragment.show(getParentFragmentManager(), bottomSheetFragment.getTag());
+            }
+        });
 
         return view;
     }
