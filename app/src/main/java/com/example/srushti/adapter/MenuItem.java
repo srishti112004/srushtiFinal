@@ -6,9 +6,9 @@ public class MenuItem {
     private String price;
 
     public MenuItem(int imageResource, String foodName, String price) {
-        this.imageResource = imageResource;
+        this.imageResource = Integer.parseInt(String.valueOf(imageResource));
         this.foodName = foodName;
-        this.price = price;
+        this.price = String.valueOf(price);
     }
 
     public int getImageResource() {

@@ -58,6 +58,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         return menuItems.size();
     }
 
+    public void setMenuItems(List<MenuItem> filteredList) {
+    }
+
     public static class MenuViewHolder extends RecyclerView.ViewHolder {
         ImageView menuImage;
         TextView menuFoodName;
