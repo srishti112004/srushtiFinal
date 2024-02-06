@@ -1,6 +1,7 @@
 package com.example.srushti.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.srushti.LoginActivity;
+import com.example.srushti.PayOutActivity;
 import com.example.srushti.R;
 import com.example.srushti.adapter.cartadapter;
 import com.example.srushti.adapter.popularItem;
+import com.example.srushti.choose_locationActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +44,7 @@ public class CartFragment extends Fragment {
         // Initialize views
         cartTitle = view.findViewById(R.id.textView15);
         recyclerViewCart = view.findViewById(R.id.recyclerViewCart);
-        proceedButton = view.findViewById(R.id.button6);
+        proceedButton = view.findViewById(R.id.proceedBtn);
 
         // Set up RecyclerView
         cartItemList = generateSampleCartItems(); // Replace this with your data
@@ -52,7 +56,8 @@ public class CartFragment extends Fragment {
         proceedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle button click (e.g., proceed with checkout)
+                Intent intent = new Intent(getActivity(), PayOutActivity.class);
+                startActivity(intent);
             }
         });
 
