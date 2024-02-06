@@ -39,15 +39,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        notificationBottomFragment = (NotificationBottomFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView2);
-        notificationIcon = findViewById(R.id.imageView2);
-        notificationIcon.setOnClickListener(view -> {
-            // Check if NotificationBottomFragment is present
-            if (notificationBottomFragment != null) {
-                // Show the NotificationBottomFragment
-                navController.navigate(R.id.bottomNavigationView);
-            }
-        });
+
     }
 
     @Override
