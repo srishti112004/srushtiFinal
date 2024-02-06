@@ -43,7 +43,7 @@ public class cartadapter extends RecyclerView.Adapter<cartadapter.CartViewHolder
         holder.cartItemPrice.setText(currentItem.getPrice());
         holder.quantityTextView.setText(String.valueOf(currentItem.getQuantity()));
 
-       /* holder.plusButton.setOnClickListener(new View.OnClickListener() {
+        holder.plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Implement logic for incrementing quantity
@@ -71,7 +71,7 @@ public class cartadapter extends RecyclerView.Adapter<cartadapter.CartViewHolder
                 cartItemList.remove(position);
                 notifyDataSetChanged();
             }
-        });*/
+        });
     }
 
     @Override

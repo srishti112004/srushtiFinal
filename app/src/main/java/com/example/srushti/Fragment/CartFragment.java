@@ -46,7 +46,7 @@ public class CartFragment extends Fragment {
         cartItemList = generateSampleCartItems(); // Replace this with your data
         cartAdapter = new cartadapter(cartItemList, requireContext());
         recyclerViewCart.setLayoutManager(new LinearLayoutManager(requireContext()));
-        recyclerViewCart.setAdapter(cartadapter);
+        recyclerViewCart.setAdapter(cartAdapter);
 
         // Set up button click listener (you can implement your logic here)
         proceedButton.setOnClickListener(new View.OnClickListener() {
