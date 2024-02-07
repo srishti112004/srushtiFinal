@@ -31,6 +31,9 @@
             android:name=".StartActivity"
             android:exported="false" />
         <activity
+            android:name=".CongratsBottonmSheet"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
