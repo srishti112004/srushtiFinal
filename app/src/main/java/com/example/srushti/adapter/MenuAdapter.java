@@ -11,11 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.srushti.R;
-import com.example.srushti.adapter.MenuItem;
 
 import java.util.List;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder> {
+
 
     private List<MenuItem> menuItems;
     private Context context;
@@ -23,6 +23,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     public MenuAdapter(List<MenuItem> menuItems, Context context) {
         this.menuItems = menuItems;
         this.context = context;
+
     }
 
     @NonNull
@@ -36,19 +37,16 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     public void onBindViewHolder(@NonNull MenuViewHolder holder, int position) {
         MenuItem currentItem = menuItems.get(position);
 
-        // Set data to views
         holder.menuImage.setImageResource(currentItem.getImageResource());
         holder.menuFoodName.setText(currentItem.getFoodName());
         holder.menuPrice.setText(currentItem.getPrice());
 
-        // Add onClickListener for "Add To Cart" button if needed
+
+
         holder.addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement logic for adding item to cart
-                // You may want to communicate with your ViewModel or Activity to handle this
-                // For simplicity, you can show a toast message for now
-                // Example: Toast.makeText(context, "Item added to cart", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

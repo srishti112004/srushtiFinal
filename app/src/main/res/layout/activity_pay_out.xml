@@ -52,7 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="8dp"
-            android:text="Name" />
+            android:text="Name"
+            android:textColor="@color/black" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -61,7 +62,8 @@
             android:background="@android:color/transparent"
             android:ems="10"
             android:inputType="text"
-            android:text="Name" />
+            android:text="Name"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout
@@ -80,18 +82,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="8dp"
-            android:text="Address" />
+            android:text="Address"
+            android:textColor="@color/black" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:text="NameLerom ipsum is placeholder text commenly used in the graphics, print, and publishing industries for previewing layouts and visual" />
+            android:text="NameLerom ipsum is placeholder text commenly used in the graphics, print, and publishing industries for previewing layouts and visual"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout
@@ -110,7 +114,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="8dp"
-            android:text="Phone" />
+            android:text="Phone"
+            android:textColor="@color/black" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -119,7 +124,8 @@
             android:background="@android:color/transparent"
             android:ems="10"
             android:inputType="phone"
-            android:text="1234567890" />
+            android:text="1234567890"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout
@@ -138,7 +144,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="8dp"
-            android:text="Payment Method" />
+            android:text="Payment Method"
+            android:textColor="@color/black" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -164,7 +171,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="8dp"
-            android:text="Total_Amount" />
+            android:text="Total_Amount"
+            android:textColor="@color/black" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -183,6 +191,7 @@
 </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/placeorder"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_gravity="bottom"
@@ -190,7 +199,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/edittextshape"
-        android:text="Place my order"
+        android:text="Place My Order"
         android:textAllCaps="false"
         android:textColor="@color/textcolor" />
 </LinearLayout>

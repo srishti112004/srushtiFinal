@@ -1,64 +1,54 @@
 package com.example.srushti;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CongratsBottonmSheet#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class CongratsBottonmSheet extends Fragment {
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class CongratsBottonmSheet extends BottomSheetDialogFragment {
 
-    public CongratsBottonmSheet() {
-        // Required empty public constructor
+    private PayOutActivity onGoHomeClickListener;
+    private LayoutInflater inflater;
+    @Nullable
+    private ViewGroup container;
+    @Nullable
+    private Bundle savedInstanceState;
+
+    public static CongratsBottonmSheet newInstance() {
+        return new CongratsBottonmSheet();
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CongratsBottonmSheet.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CongratsBottonmSheet newInstance(String param1, String param2) {
-        CongratsBottonmSheet fragment = new CongratsBottonmSheet();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        this.inflater = inflater;
+        this.container = container;
+        this.savedInstanceState = savedInstanceState;
+        View view = inflater.inflate(R.layout.fragment_congrats_bottonm_sheet, container, false);
+
+        // Your fragment initialization code
+
+        Button goHomeButton = view.findViewById(R.id.button6);
+        goHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                // Start the activity
+                startActivity(intent);
+            }
+        });
+
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_congrats_bottonm_sheet, container, false);
+    public void setOnGoHomeClickListener(PayOutActivity listener) {
+        this.onGoHomeClickListener = listener;
     }
 }

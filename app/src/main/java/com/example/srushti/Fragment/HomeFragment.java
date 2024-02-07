@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment {
                 // Change the image source
                 imgColl.setImageResource(imageResources[currentImageIndex]);
 
-                // Increment the image index or reset to 0 if at the end
+
                 currentImageIndex = (currentImageIndex + 1) % imageResources.length;
 
                 // Schedule the next image change

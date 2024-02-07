@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to start ChooseFileActivity
-                Intent intent = new Intent(LoginActivity.this, choose_locationActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
                 // Start the ChooseFileActivity
                 startActivity(intent);
