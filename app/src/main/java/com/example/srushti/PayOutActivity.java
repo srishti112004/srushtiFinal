@@ -4,28 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class PayOutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pay_out);
-
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_pay_out );
+        Button btn = findViewById( R.id.placeorder );
         CongratsBottonmSheet bottomSheetFragment = CongratsBottonmSheet.newInstance();
-        bottomSheetFragment.setOnGoHomeClickListener(this);
-        bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+        bottomSheetFragment.setOnGoHomeClickListener( this );
+        bottomSheetFragment.show( getSupportFragmentManager(), bottomSheetFragment.getTag() );
+
+        btn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( getApplication(), CongratsBottonmSheet.class );
+                startActivity( intent );
+                finish();
+            }
+        } );
 
 
-        abstract class OnGoHomeClickListener {
-            public abstract void onGoHomeClicked();
-        }
-
-    }
-    public void onGoHomeClicked() {
-
-        Intent intent = new Intent(this, CongratsBottonmSheet.class);
-        startActivity(intent);
-        finish(); // Optional: finish the current activity if needed
     }
 }

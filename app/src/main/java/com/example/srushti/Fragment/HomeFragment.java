@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         imgColl = view.findViewById(R.id.Imgcoll);
-        recyclerViewPopular = view.findViewById(R.id.recyclerViewPopular);
+        recyclerViewPopular = view.findViewById(R.id.recyclerView);
         TextView viewMenuTextView = view.findViewById(R.id.textView14);
 
 
