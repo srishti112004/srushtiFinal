@@ -33,8 +33,6 @@ public class CongratsBottonmSheet extends BottomSheetDialogFragment {
         this.savedInstanceState = savedInstanceState;
         View view = inflater.inflate(R.layout.fragment_congrats_bottonm_sheet, container, false);
 
-        // Your fragment initialization code
-
         Button goHomeButton = view.findViewById(R.id.button6);
         goHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override

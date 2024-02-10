@@ -21,9 +21,8 @@ public class PayOutActivity extends AppCompatActivity {
         btn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( getApplication(), CongratsBottonmSheet.class );
-                startActivity( intent );
-                finish();
+                CongratsBottonmSheet bottomSheetFragment = CongratsBottonmSheet.newInstance();
+                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
             }
         } );
 
