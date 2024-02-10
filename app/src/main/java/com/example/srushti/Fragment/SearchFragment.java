@@ -33,15 +33,12 @@ public class SearchFragment extends Fragment {
         searchView = view.findViewById(R.id.searchView);
         recyclerView = view.findViewById(R.id.menuRecyclerView);
 
-        // Initialize RecyclerView and its adapter
         menuItems = generateSampleMenuItems(); // Replace this with your data
         menuAdapter = new MenuAdapter(menuItems, requireContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(menuAdapter);
 
-        // Set up the SearchView
         setupSearchView();
-
         return view;
     }
 
@@ -49,16 +46,13 @@ public class SearchFragment extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                // Handle the search query submission (e.g., perform search)
-                // You can filter your data based on the query here
                 filterMenuItems(query);
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                // Handle the search query as the user types
-                // You can filter your data based on the newText here
+
                 filterMenuItems(newText);
                 return true;
             }
@@ -66,8 +60,7 @@ public class SearchFragment extends Fragment {
     }
 
     private void filterMenuItems(String query) {
-        // Implement your filtering logic here
-        // Update the RecyclerView adapter with the filtered data
+
         List<MenuItem> filteredList = new ArrayList<>();
         for (MenuItem item : menuItems) {
             if (item.getFoodName().toLowerCase().contains(query.toLowerCase())) {

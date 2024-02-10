@@ -59,7 +59,7 @@ public class MenuBottomSheetFragment extends DialogFragment {
 
     private List<MenuItem> generateSampleMenuItems() {
         List<MenuItem> itemList = new ArrayList<>();
-        // Add sample menu items here
+
         itemList.add(new MenuItem(R.drawable.image1, "Sample Food 1", "$10"));
         itemList.add(new MenuItem(R.drawable.image2, "Sample Food 2", "$8"));
         itemList.add(new MenuItem(R.drawable.image3, "Sample Food 3", "$12"));

@@ -33,7 +33,7 @@ public class CartFragment extends Fragment {
     private RecyclerView.Adapter cartadapter;
 
     public CartFragment() {
-        // Required empty public constructor
+
     }
 
     @SuppressLint("MissingInflatedId")
@@ -41,18 +41,17 @@ public class CartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
 
-        // Initialize views
         cartTitle = view.findViewById(R.id.textView15);
         recyclerViewCart = view.findViewById(R.id.recyclerViewCart);
         proceedButton = view.findViewById(R.id.proceedBtn);
 
-        // Set up RecyclerView
+
         cartItemList = generateSampleCartItems(); // Replace this with your data
         cartAdapter = new cartadapter(cartItemList, requireContext());
         recyclerViewCart.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerViewCart.setAdapter(cartAdapter);
 
-        // Set up button click listener (you can implement your logic here)
+
         proceedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
