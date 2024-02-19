@@ -1,47 +1,111 @@
 package com.example.srushti;  // Replace com.yourpackage with your actual package name
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.srushti.LoginActivity;
-import com.example.srushti.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class SignupActivity extends AppCompatActivity {
+    ActivitySignupBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);  // Assuming your XML file is named activity_signup.xml
+        binding = ActivitySignupBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        // Find the button in your layout
-        AppCompatButton createAccountButton = findViewById(R.id.button3);
-        TextView sign=findViewById(R.id.textView9);
-
-        // Set a click listener for the button
-        createAccountButton.setOnClickListener(new View.OnClickListener() {
+        binding.Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to start LoginActivity
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-
-                // Start the LoginActivity
-                startActivity(intent);
+                startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                finish();
             }
         });
-        sign.setOnClickListener(new View.OnClickListener() {
+        binding.signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                String name = ((EditText) binding.name).getText().toString();
 
-                // Start the LoginActivity
-                startActivity(intent);
+                String email =((EditText) binding.email).getText().toString();
+                String password =((EditText) binding.password).getText().toString();
+                createAccount(name, email, password);
             }
         });
     }
+
+    private void createAccount(String name, String email, String password) {
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("creating");
+        progressDialog.setMessage("Account");
+        progressDialog.show();
+        fAuth.createUserWithEmailAndPassword(email.trim(), password.trim())
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(name).build();
+                        FirebaseAuth.getInstance().getCurrentUser().updateProfile(profileChangeRequest);
+                        progressDialog.cancel();
+                        Toast.makeText(SignupActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
+                        ((EditText) binding.name).setText("");
+                        ((EditText)binding.email).setText("");
+                        ((EditText)binding.password).setText("");
+
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.cancel();
+                        Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 }
+
+//        // Assuming your XML file is named activity_signup.xml
+//
+//        // Find the button in your layout
+//        AppCompatButton createAccountButton = findViewById(R.id.button3);
+//        TextView sign=findViewById(R.id.textView9);
+//
+//        // Set a click listener for the button
+//        createAccountButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Create an Intent to start LoginActivity
+//                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+//
+//                // Start the LoginActivity
+//                startActivity(intent);
+//            }
+//        });
+//        sign.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+//
+//                // Start the LoginActivity
+//                startActivity(intent);
+//            }
+//        });
+//    }
+//}
+
+
+

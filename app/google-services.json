@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "407819680921",
-    "project_id": "srushti-efc4b",
-    "storage_bucket": "srushti-efc4b.appspot.com"
+    "project_number": "515726704601",
+    "project_id": "srushtifinal",
+    "storage_bucket": "srushtifinal.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:407819680921:android:ef89fb92645c47ebfa4c08",
+        "mobilesdk_app_id": "1:515726704601:android:c677e806ba3491f71ce3c8",
         "android_client_info": {
           "package_name": "com.example.srushti"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCeTkm1ZqtR2ePrhOYFfUNztsQ0nlWfS6c"
+          "current_key": "AIzaSyBLkOT_AU8ttD1NEPwqFm19_-4c2GOWCFs"
         }
       ],
       "services": {
