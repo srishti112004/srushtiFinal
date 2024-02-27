@@ -13,12 +13,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.srushti.LoginActivity;
 import com.example.srushti.PayOutActivity;
 import com.example.srushti.R;
 import com.example.srushti.adapter.cartadapter;
 import com.example.srushti.adapter.popularItem;
-import com.example.srushti.choose_locationActivity;
 
 import java.util.ArrayList;
 import java.util.List;

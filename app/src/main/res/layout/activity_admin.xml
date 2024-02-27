@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/almendra_sc"
-        android:text="Login To Your  Account"
+        android:text="Login To Your Admin Account"
         android:textColor="@color/textcolor"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/adminemail"
         android:layout_width="325dp"
         android:layout_height="57dp"
         android:layout_marginTop="24dp"
@@ -73,8 +73,9 @@
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
+
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/adminpassword"
         android:layout_width="325dp"
         android:layout_height="57dp"
         android:layout_marginTop="32dp"
@@ -86,12 +87,11 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
-
+        app:layout_constraintEnd_toEndOf="@+id/adminemail"
+        app:layout_constraintTop_toBottomOf="@+id/adminemail" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login"
+        android:id="@+id/adminlogin"
         android:layout_width="152dp"
         android:layout_height="57dp"
         android:layout_marginTop="-20dp"
@@ -107,10 +107,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/adminpassword" />
 
     <TextView
-        android:id="@+id/goTosignup"
+        android:id="@+id/signupadmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -118,9 +118,9 @@
         android:clickable="true"
         android:textColor="#F49233"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/login"
-        app:layout_constraintStart_toStartOf="@+id/login"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintEnd_toEndOf="@+id/adminlogin"
+        app:layout_constraintStart_toStartOf="@+id/adminlogin"
+        app:layout_constraintTop_toBottomOf="@+id/adminlogin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

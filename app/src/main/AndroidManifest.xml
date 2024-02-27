@@ -13,26 +13,32 @@
         android:theme="@style/Theme.PizzaStore"
         tools:targetApi="31">
         <activity
+            android:name=".adminsignup"
+            android:exported="true" />
+        <activity
+            android:name=".adminActivity"
+            android:exported="true" />
+        <activity
+            android:name=".role_activity"
+            android:exported="true" />
+        <activity
             android:name=".DetailActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".PayOutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".choose_locationActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SignupActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".StartActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CongratsBottonmSheet"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"

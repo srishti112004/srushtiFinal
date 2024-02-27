@@ -6,39 +6,41 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.example.srushti.databinding.ActivitySignupBinding;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
+import com.example.srushti.databinding.ActivityAdminsignupBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class SignupActivity extends AppCompatActivity {
-    private ActivitySignupBinding binding; // Declare binding object
+
+
+public class adminsignup extends AppCompatActivity {
+    private ActivityAdminsignupBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_signup);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_adminsignup);
 
         binding.Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                startActivity(new Intent(adminsignup.this, adminActivity.class));
                 finish();
             }
         });
-        binding.signup.setOnClickListener(new View.OnClickListener() {
+        binding.createaccounts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = ((EditText) binding.name).getText().toString();
+                String name = ((EditText) binding.adminname).getText().toString();
 
-                String email =((EditText) binding.email).getText().toString();
-                String password =((EditText) binding.password).getText().toString();
+                String email =((EditText) binding.adminemails).getText().toString();
+                String password =((EditText) binding.adminpasswords).getText().toString();
                 createAccount(name, email, password);
             }
         });
@@ -58,10 +60,10 @@ public class SignupActivity extends AppCompatActivity {
                                 .setDisplayName(name).build();
                         FirebaseAuth.getInstance().getCurrentUser().updateProfile(profileChangeRequest);
                         progressDialog.cancel();
-                        Toast.makeText(SignupActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
-                        ((EditText) binding.name).setText("");
-                        ((EditText)binding.email).setText("");
-                        ((EditText)binding.password).setText("");
+                        Toast.makeText(adminsignup.this, "Account Created", Toast.LENGTH_SHORT).show();
+                        ((EditText) binding.adminname).setText("");
+                        ((EditText)binding.adminemails).setText("");
+                        ((EditText)binding.adminpasswords).setText("");
 
 
                     }
@@ -70,7 +72,7 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.cancel();
-                        Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(adminsignup.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

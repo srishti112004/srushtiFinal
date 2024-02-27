@@ -6,7 +6,7 @@ public class popularItem {
     private String price;
     private int quantity;
 
-    public popularItem(int imageResource, String foodName, String price,int quantity) {
+    public popularItem(int imageResource, String foodName, String price, int quantity) {
         this.imageResource = imageResource;
         this.foodName = foodName;
         this.price = price;

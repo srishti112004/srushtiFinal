@@ -25,7 +25,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to start LoginActivity
-                Intent intent = new Intent(StartActivity.this, LoginActivity.class);
+                Intent intent = new Intent(StartActivity.this, role_activity.class);
 
                 // Start the LoginActivity
                 startActivity(intent);

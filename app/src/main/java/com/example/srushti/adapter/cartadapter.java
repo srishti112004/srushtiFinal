@@ -8,11 +8,14 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.srushti.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -20,10 +23,12 @@ public class cartadapter extends RecyclerView.Adapter<cartadapter.CartViewHolder
 
     private List<popularItem> cartItemList;
     private Context context;
+    private DatabaseReference mDatabase;
 
     public cartadapter(List<popularItem> cartItemList, Context context) {
         this.cartItemList = cartItemList;
         this.context = context;
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("cartItems");
     }
 
     @NonNull
@@ -34,7 +39,7 @@ public class cartadapter extends RecyclerView.Adapter<cartadapter.CartViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CartViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         popularItem currentItem = cartItemList.get(position);
 
         // Set data to views
@@ -46,37 +51,65 @@ public class cartadapter extends RecyclerView.Adapter<cartadapter.CartViewHolder
         holder.plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement logic for incrementing quantity
-                // You can update the item quantity in the cartItemList and refresh the adapter
-                currentItem.incrementQuantity();
-                notifyDataSetChanged();
+                // Increment quantity
+                int adapterPosition = holder.getAdapterPosition();
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    popularItem currentItem = cartItemList.get(adapterPosition);
+                    currentItem.setQuantity(currentItem.getQuantity() + 1);
+                    notifyItemChanged(adapterPosition);
+                    updateCartItem(currentItem);
+                }
             }
         });
 
         holder.minusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement logic for decrementing quantity
-                // You can update the item quantity in the cartItemList and refresh the adapter
-                currentItem.decrementQuantity();
-                notifyDataSetChanged();
+                // Decrement quantity
+                int adapterPosition = holder.getAdapterPosition();
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    popularItem currentItem = cartItemList.get(adapterPosition);
+                    int quantity = currentItem.getQuantity();
+                    if (quantity > 1) {
+                        currentItem.setQuantity(quantity - 1);
+                        notifyItemChanged(adapterPosition);
+                        updateCartItem(currentItem);
+                    } else {
+                        Toast.makeText(context, "Minimum quantity reached", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
 
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement logic for deleting the item from the cart
-                // You can remove the item from the list and refresh the adapter
-                cartItemList.remove(position);
-                notifyDataSetChanged();
+                // Delete item
+                int adapterPosition = holder.getAdapterPosition();
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    popularItem currentItem = cartItemList.get(adapterPosition);
+                    cartItemList.remove(adapterPosition);
+                    notifyItemRemoved(adapterPosition);
+                    deleteCartItem(currentItem);
+                }
             }
         });
+
     }
 
     @Override
     public int getItemCount() {
         return cartItemList.size();
+    }
+
+    private void updateCartItem(popularItem item) {
+        // Update item in Firebase database
+        mDatabase.child(item.getFoodName()).setValue(item);
+    }
+
+    private void deleteCartItem(popularItem item) {
+        // Delete item from Firebase database
+        mDatabase.child(item.getFoodName()).removeValue();
     }
 
     public static class CartViewHolder extends RecyclerView.ViewHolder {

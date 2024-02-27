@@ -3,10 +3,6 @@ package com.example.srushti;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.example.srushti.R;
-
-import java.text.BreakIterator;
-
 public class LoginActivityBinding {
     public View login;
     public View email;
