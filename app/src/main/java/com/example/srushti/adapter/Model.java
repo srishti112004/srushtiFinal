@@ -1,19 +1,29 @@
 package com.example.srushti.adapter;
+public class Model{
+    String imageUrl, itemName, itemPrice;
 
-public class Model {
-    public String getItemPrice() {
-        return null;
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public String getHotelLocation() {
-        return null;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getItemName() {
-        return null;
+        return itemName;
     }
 
-    public String getImageUrl() {
-        return null;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public String getItemPrice() {
+        return itemPrice;
+    }
+
+    public void setItemPrice(String itemPrice) {
+        this.itemPrice = itemPrice;
     }
 }

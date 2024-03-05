@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "844811254670",
+    "project_id": "isha-9491d",
+    "storage_bucket": "isha-9491d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844811254670:android:fc6e07dd1a207d9abcc2df",
+        "android_client_info": {
+          "package_name": "com.example.srushti"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCukyloKs5I_Vzy8gxXKNeXvWgWJp4BQqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
-    id("com.google.gms.google-services")
-}
+    id("com.google.gms.google-services") }
 
 android {
     namespace = "com.example.srushti"
@@ -42,6 +41,8 @@ android {
 dependencies {
 
 
+    implementation("com.google.firebase:firebase-analytics")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -57,7 +58,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
 
-    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
-    implementation("com.google.firebase:firebase-analytics")
 
-   }
+  }
