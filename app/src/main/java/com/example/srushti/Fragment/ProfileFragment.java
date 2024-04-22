@@ -65,11 +65,11 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        nameEditText = view.findViewById(R.id.editTextTextPersonName);
-        addressEditText = view.findViewById(R.id.editTextTextPostalAddress);
-        emailEditText = view.findViewById(R.id.editTextTextEmailAddress);
-        phoneEditText = view.findViewById(R.id.editTextPhone);
-        saveButton = view.findViewById(R.id.saveButton);
+        nameEditText = view.findViewById(R.id.editname);
+        addressEditText = view.findViewById(R.id.editaddress);
+        emailEditText = view.findViewById(R.id.editemail);
+        phoneEditText = view.findViewById(R.id.editphone);
+        saveButton = view.findViewById(R.id.button4);
         logoutButton = view.findViewById(R.id.logoutButton);
 
         saveButton.setOnClickListener(new View.OnClickListener() {

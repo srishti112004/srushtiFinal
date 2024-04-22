@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,61 +16,65 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private EditText emailEditText, passwordEditText;
-    private TextView goTosignupTextView;
-    private FirebaseAuth firebaseAuth;
+    // Remove LoginActivityBinding declaration
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login); // Set the content view here
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        EditText emailEditText = findViewById(R.id.email);
+        EditText passwordEditText = findViewById(R.id.password);
+        View goTosignup = findViewById(R.id.goTosignup);
 
-        emailEditText = findViewById(R.id.email);
-        passwordEditText = findViewById(R.id.password);
-        goTosignupTextView = findViewById(R.id.goTosignup);
-
-        goTosignupTextView.setOnClickListener(new View.OnClickListener() {
+        goTosignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, SignupActivity.class));
+                finish();
             }
         });
 
         findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailEditText.getText().toString().trim();
-                String password = passwordEditText.getText().toString().trim();
-                loginUser(email, password);
+                String email = emailEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+                login(email, password);
             }
         });
     }
 
-    private void loginUser(String email, String password) {
+    private void login(String email, String password) {
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Login");
-        progressDialog.setMessage("Logging in...");
+        progressDialog.setMessage("In process");
         progressDialog.show();
-
-        firebaseAuth.signInWithEmailAndPassword(email, password)
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.signInWithEmailAndPassword(email.trim(), password.trim())
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        progressDialog.dismiss();
-                        Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                        progressDialog.cancel();
+                        Toast.makeText(LoginActivity.this, "login Successful", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                        finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        progressDialog.dismiss();
-                        Toast.makeText(LoginActivity.this, "Authentication failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        progressDialog.cancel();
+                        Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        }
     }
 }

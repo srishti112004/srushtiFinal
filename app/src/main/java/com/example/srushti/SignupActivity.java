@@ -1,16 +1,16 @@
-package com.example.srushti;
+package com.example.srushti;  // Replace com.yourpackage with your actual package name
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
-import com.example.srushti.databinding.ActivitySignupBinding;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -19,11 +19,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class SignupActivity extends AppCompatActivity {
-    private ActivitySignupBinding binding; // Declare binding object
+    ActivitySignupBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_signup);
+        binding = ActivitySignupBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         binding.Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,3 +77,35 @@ public class SignupActivity extends AppCompatActivity {
                 });
     }
 }
+
+//        // Assuming your XML file is named activity_signup.xml
+//
+//        // Find the button in your layout
+//        AppCompatButton createAccountButton = findViewById(R.id.button3);
+//        TextView sign=findViewById(R.id.textView9);
+//
+//        // Set a click listener for the button
+//        createAccountButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Create an Intent to start LoginActivity
+//                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+//
+//                // Start the LoginActivity
+//                startActivity(intent);
+//            }
+//        });
+//        sign.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+//
+//                // Start the LoginActivity
+//                startActivity(intent);
+//            }
+//        });
+//    }
+//}
+
+
+
