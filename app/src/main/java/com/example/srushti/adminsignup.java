@@ -10,14 +10,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
 import com.example.srushti.databinding.ActivityAdminsignupBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
-
-
 
 public class adminsignup extends AppCompatActivity {
     private ActivityAdminsignupBinding binding;
@@ -34,13 +33,13 @@ public class adminsignup extends AppCompatActivity {
                 finish();
             }
         });
+
         binding.createaccounts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = ((EditText) binding.adminname).getText().toString();
-
-                String email =((EditText) binding.adminemails).getText().toString();
-                String password =((EditText) binding.adminpasswords).getText().toString();
+                String name = binding.adminname.getText().toString();
+                String email = binding.adminemails.getText().toString();
+                String password = binding.adminpasswords.getText().toString();
                 createAccount(name, email, password);
             }
         });
@@ -49,30 +48,29 @@ public class adminsignup extends AppCompatActivity {
     private void createAccount(String name, String email, String password) {
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
         ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("creating");
-        progressDialog.setMessage("Account");
+        progressDialog.setTitle("Creating Account");
+        progressDialog.setMessage("Please wait...");
         progressDialog.show();
+
         fAuth.createUserWithEmailAndPassword(email.trim(), password.trim())
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
                                 .setDisplayName(name).build();
-                        FirebaseAuth.getInstance().getCurrentUser().updateProfile(profileChangeRequest);
-                        progressDialog.cancel();
+                        fAuth.getCurrentUser().updateProfile(profileChangeRequest);
+                        progressDialog.dismiss();
                         Toast.makeText(adminsignup.this, "Account Created", Toast.LENGTH_SHORT).show();
-                        ((EditText) binding.adminname).setText("");
-                        ((EditText)binding.adminemails).setText("");
-                        ((EditText)binding.adminpasswords).setText("");
-
-
+                        binding.adminname.setText("");
+                        binding.adminemails.setText("");
+                        binding.adminpasswords.setText("");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        progressDialog.cancel();
-                        Toast.makeText(adminsignup.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                        Toast.makeText(adminsignup.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

@@ -30,7 +30,7 @@ public class adminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), adminsignup.class);
                 startActivity(intent);
                 finish(); // Finish the current activity to prevent going back to it
             }
