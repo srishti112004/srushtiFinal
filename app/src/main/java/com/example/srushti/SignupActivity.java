@@ -1,4 +1,4 @@
-package com.example.srushti;  // Replace com.yourpackage with your actual package name
+package com.example.srushti;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -77,35 +77,4 @@ public class SignupActivity extends AppCompatActivity {
                 });
     }
 }
-
-//        // Assuming your XML file is named activity_signup.xml
-//
-//        // Find the button in your layout
-//        AppCompatButton createAccountButton = findViewById(R.id.button3);
-//        TextView sign=findViewById(R.id.textView9);
-//
-//        // Set a click listener for the button
-//        createAccountButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Create an Intent to start LoginActivity
-//                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-//
-//                // Start the LoginActivity
-//                startActivity(intent);
-//            }
-//        });
-//        sign.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-//
-//                // Start the LoginActivity
-//                startActivity(intent);
-//            }
-//        });
-//    }
-//}
-
-
 

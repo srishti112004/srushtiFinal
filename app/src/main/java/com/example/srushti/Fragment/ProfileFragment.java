@@ -70,7 +70,7 @@ public class ProfileFragment extends Fragment {
         emailEditText = view.findViewById(R.id.editemail);
         phoneEditText = view.findViewById(R.id.editphone);
         saveButton = view.findViewById(R.id.button4);
-        logoutButton = view.findViewById(R.id.logoutButton);
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
