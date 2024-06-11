@@ -23,7 +23,7 @@ public class SearchFragment extends Fragment {
     private List<MenuItem> menuItems;
 
     public SearchFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -72,8 +72,7 @@ public class SearchFragment extends Fragment {
     }
 
     private List<MenuItem> generateSampleMenuItems() {
-        // Replace this with your actual data retrieval logic
-        // This is just an example
+
         List<MenuItem> itemList = new ArrayList<>();
         itemList.add(new MenuItem(R.drawable.image1, "Sample Food 1", "$10"));
         itemList.add(new MenuItem(R.drawable.image2, "Sample Food 2", "$8"));

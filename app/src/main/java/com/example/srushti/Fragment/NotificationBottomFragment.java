@@ -25,7 +25,6 @@ public class NotificationBottomFragment extends Fragment {
     private List<NotificationItem> notificationItems;
 
     public NotificationBottomFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -38,7 +37,7 @@ public class NotificationBottomFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView = view.findViewById(R.id.menuRecyclerView);
-        notificationItems = generateSampleNotificationItems(); // Replace this with your data
+        notificationItems = generateSampleNotificationItems();
 
         notificationAdapter = new NotificationAdapter(notificationItems, requireContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
@@ -50,7 +49,6 @@ public class NotificationBottomFragment extends Fragment {
         itemList.add(new NotificationItem(R.drawable.congrats, "your order has been canceled successfully"));
         itemList.add(new NotificationItem(R.drawable.congrats, "order has been taken by the driver"));
         itemList.add(new NotificationItem(R.drawable.congrats, "congrats your order placed"));
-        // Add more items as needed
         return itemList;
     }
 }

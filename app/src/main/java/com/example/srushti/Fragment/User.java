@@ -7,7 +7,7 @@ public class User {
         private String phone;
 
         public User() {
-            // Default constructor required for Firebase
+
         }
 
         public User(String name, String address, String email, String phone) {

@@ -30,19 +30,15 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
-        // Initialize RecyclerView
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Initialize data for RecyclerView
         historyItemList = new ArrayList<>();
-        // Add sample data (replace this with your actual data retrieval logic)
         historyItemList.add(new BuyAgainItem("FoodName 1", "$5"));
         historyItemList.add(new BuyAgainItem("FoodName 2", "$10"));
         historyItemList.add(new BuyAgainItem("FoodName 3", "$7"));
 
-        // Initialize and set adapter
-        Context context = getContext(); // Retrieve the context
+        Context context = getContext();
         adapter = new BuyAgainAdapter(context, historyItemList);
         recyclerView.setAdapter(adapter);
 

@@ -1,5 +1,10 @@
 package com.example.srushti.Fragment;
 
+import static android.app.PendingIntent.getActivity;
+
+import static androidx.core.content.ContentProviderCompat.requireContext;
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,8 +49,7 @@ public class CartFragment extends Fragment {
         recyclerViewCart = view.findViewById(R.id.recyclerViewCart);
         proceedButton = view.findViewById(R.id.proceedBtn);
 
-
-        cartItemList = generateSampleCartItems(); // Replace this with your data
+        cartItemList = generateSampleCartItems();
         cartAdapter = new cartadapter(cartItemList, requireContext());
         recyclerViewCart.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerViewCart.setAdapter(cartAdapter);
@@ -70,8 +75,8 @@ public class CartFragment extends Fragment {
         itemList.add(new popularItem(R.drawable.menu5, "Pasta", "$15",1));
         itemList.add(new popularItem(R.drawable.menu6, "Wrap", "$16",1));
         itemList.add(new popularItem(R.drawable.menu7, "Fruit salad", "$17",1));
-        // Populate the list with sample data
-        // You may fetch the actual cart items from your data source
+
+
         return itemList;
     }
 }

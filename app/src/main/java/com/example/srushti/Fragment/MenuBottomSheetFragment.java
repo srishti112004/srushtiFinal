@@ -28,10 +28,8 @@ public class MenuBottomSheetFragment extends DialogFragment {
     private List<MenuItem> menuItems;
 
     public MenuBottomSheetFragment() {
-        // Required empty public constructor
     }
 
-    // Factory method to create a new instance of the fragment
     public static MenuBottomSheetFragment newInstance() {
         return new MenuBottomSheetFragment();
     }
@@ -48,8 +46,7 @@ public class MenuBottomSheetFragment extends DialogFragment {
         menuRecyclerView = view.findViewById(R.id.menuRecyclerView);
         btnBack= view.findViewById(R.id.buttonBack);
 
-        // Initialize RecyclerView and its adapter
-        menuItems = generateSampleMenuItems(); // Replace this with your data
+        menuItems = generateSampleMenuItems();
         menuAdapter = new MenuAdapter(menuItems, requireContext());
         menuRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         menuRecyclerView.setAdapter(menuAdapter);

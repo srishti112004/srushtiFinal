@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
         });
 
         // Start the image change task after the ImageView is properly initialized
-        startImageChangeTask();
+            startImageChangeTask();
 
         viewMenuTextView.setOnClickListener(new View.OnClickListener() {
             @Override

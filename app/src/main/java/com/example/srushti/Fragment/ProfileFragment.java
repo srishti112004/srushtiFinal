@@ -35,7 +35,7 @@ public class ProfileFragment extends Fragment {
     private FirebaseUser currentUser;
 
     public ProfileFragment() {
-        // Required empty public constructor
+
     }
 
     public static ProfileFragment newInstance(String param1, String param2) {
